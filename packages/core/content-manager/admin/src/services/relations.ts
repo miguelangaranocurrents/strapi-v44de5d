@@ -126,6 +126,12 @@ const relationsApi = contentManagerApi.injectEndpoints({
           endpointName,
           model: queryArgs.model,
           targetField: queryArgs.targetField,
+          /**
+           * The same component (e.g. in a dynamic zone or repeatable) can appear multiple
+           * times on a page, each instance has its own id & available relations.
+           */
+          id: queryArgs.params?.id,
+          locale: queryArgs.params?.locale,
           _q: queryArgs.params?._q,
           idsToOmit: queryArgs.params?.idsToOmit,
           idsToInclude: queryArgs.params?.idsToInclude,
